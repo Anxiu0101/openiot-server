@@ -12,6 +12,31 @@ var (
 	_ = fastpb.Skip
 )
 
+func (x *PingReq) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
+	switch number {
+	case 1:
+		offset, err = x.fastReadField1(buf, _type)
+		if err != nil {
+			goto ReadFieldError
+		}
+	default:
+		offset, err = fastpb.Skip(buf, _type, number)
+		if err != nil {
+			goto SkipFieldError
+		}
+	}
+	return offset, nil
+SkipFieldError:
+	return offset, fmt.Errorf("%T cannot parse invalid wire-format data, error: %s", x, err)
+ReadFieldError:
+	return offset, fmt.Errorf("%T read field %d '%s' error: %s", x, number, fieldIDToName_PingReq[number], err)
+}
+
+func (x *PingReq) fastReadField1(buf []byte, _type int8) (offset int, err error) {
+	x.Message, offset, err = fastpb.ReadString(buf, _type)
+	return offset, err
+}
+
 func (x *BaseRsp) FastRead(buf []byte, _type int8, number int32) (offset int, err error) {
 	switch number {
 	case 1:
@@ -92,6 +117,22 @@ func (x *ListRsp) fastReadField3(buf []byte, _type int8) (offset int, err error)
 	return offset, err
 }
 
+func (x *PingReq) FastWrite(buf []byte) (offset int) {
+	if x == nil {
+		return offset
+	}
+	offset += x.fastWriteField1(buf[offset:])
+	return offset
+}
+
+func (x *PingReq) fastWriteField1(buf []byte) (offset int) {
+	if x.Message == "" {
+		return offset
+	}
+	offset += fastpb.WriteString(buf[offset:], 1, x.GetMessage())
+	return offset
+}
+
 func (x *BaseRsp) FastWrite(buf []byte) (offset int) {
 	if x == nil {
 		return offset
@@ -151,6 +192,22 @@ func (x *ListRsp) fastWriteField3(buf []byte) (offset int) {
 	return offset
 }
 
+func (x *PingReq) Size() (n int) {
+	if x == nil {
+		return n
+	}
+	n += x.sizeField1()
+	return n
+}
+
+func (x *PingReq) sizeField1() (n int) {
+	if x.Message == "" {
+		return n
+	}
+	n += fastpb.SizeString(1, x.GetMessage())
+	return n
+}
+
 func (x *BaseRsp) Size() (n int) {
 	if x == nil {
 		return n
@@ -208,6 +265,10 @@ func (x *ListRsp) sizeField3() (n int) {
 	}
 	n += fastpb.SizeInt64(3, x.GetLimit())
 	return n
+}
+
+var fieldIDToName_PingReq = map[int32]string{
+	1: "Message",
 }
 
 var fieldIDToName_BaseRsp = map[int32]string{

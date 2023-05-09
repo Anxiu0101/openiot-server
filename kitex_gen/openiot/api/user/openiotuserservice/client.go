@@ -12,7 +12,7 @@ import (
 
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.
 type Client interface {
-	Ping(ctx context.Context, Req *user.PingReq, callOptions ...callopt.Option) (r *api.BaseRsp, err error)
+	Ping(ctx context.Context, Req *api.PingReq, callOptions ...callopt.Option) (r *api.BaseRsp, err error)
 	CreateUser(ctx context.Context, Req *user.CreateUserReq, callOptions ...callopt.Option) (r *user.CreateUserRsp, err error)
 	RemoveUser(ctx context.Context, Req *user.RemoveUserReq, callOptions ...callopt.Option) (r *user.RemoveUserRsp, err error)
 	UpdateUser(ctx context.Context, Req *user.UpdateUserReq, callOptions ...callopt.Option) (r *user.UpdateUserRsp, err error)
@@ -49,7 +49,7 @@ type kOpeniotUserServiceClient struct {
 	*kClient
 }
 
-func (p *kOpeniotUserServiceClient) Ping(ctx context.Context, Req *user.PingReq, callOptions ...callopt.Option) (r *api.BaseRsp, err error) {
+func (p *kOpeniotUserServiceClient) Ping(ctx context.Context, Req *api.PingReq, callOptions ...callopt.Option) (r *api.BaseRsp, err error) {
 	ctx = client.NewCtxWithCallOptions(ctx, callOptions)
 	return p.kClient.Ping(ctx, Req)
 }

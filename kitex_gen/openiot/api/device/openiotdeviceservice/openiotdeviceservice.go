@@ -48,7 +48,7 @@ func pingHandler(ctx context.Context, handler interface{}, arg, result interface
 	switch s := arg.(type) {
 	case *streaming.Args:
 		st := s.Stream
-		req := new(device.PingReq)
+		req := new(api.PingReq)
 		if err := st.RecvMsg(req); err != nil {
 			return err
 		}
@@ -78,12 +78,12 @@ func newPingResult() interface{} {
 }
 
 type PingArgs struct {
-	Req *device.PingReq
+	Req *api.PingReq
 }
 
 func (p *PingArgs) FastRead(buf []byte, _type int8, number int32) (n int, err error) {
 	if !p.IsSetReq() {
-		p.Req = new(device.PingReq)
+		p.Req = new(api.PingReq)
 	}
 	return p.Req.FastRead(buf, _type, number)
 }
@@ -110,7 +110,7 @@ func (p *PingArgs) Marshal(out []byte) ([]byte, error) {
 }
 
 func (p *PingArgs) Unmarshal(in []byte) error {
-	msg := new(device.PingReq)
+	msg := new(api.PingReq)
 	if err := proto.Unmarshal(in, msg); err != nil {
 		return err
 	}
@@ -118,9 +118,9 @@ func (p *PingArgs) Unmarshal(in []byte) error {
 	return nil
 }
 
-var PingArgs_Req_DEFAULT *device.PingReq
+var PingArgs_Req_DEFAULT *api.PingReq
 
-func (p *PingArgs) GetReq() *device.PingReq {
+func (p *PingArgs) GetReq() *api.PingReq {
 	if !p.IsSetReq() {
 		return PingArgs_Req_DEFAULT
 	}
@@ -972,7 +972,7 @@ func newServiceClient(c client.Client) *kClient {
 	}
 }
 
-func (p *kClient) Ping(ctx context.Context, Req *device.PingReq) (r *api.BaseRsp, err error) {
+func (p *kClient) Ping(ctx context.Context, Req *api.PingReq) (r *api.BaseRsp, err error) {
 	var _args PingArgs
 	_args.Req = Req
 	var _result PingResult
