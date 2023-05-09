@@ -5,8 +5,8 @@ package openiotuserservice
 import (
 	"context"
 	"fmt"
-	api "github.com/OpenIoT-Hub/openiot-server/internal/user/kitex_gen/openiot/api"
-	user "github.com/OpenIoT-Hub/openiot-server/internal/user/kitex_gen/openiot/api/user"
+	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api"
+	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/user"
 	client "github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
 	streaming "github.com/cloudwego/kitex/pkg/streaming"

@@ -4,7 +4,7 @@ package user
 
 import (
 	fmt "fmt"
-	api "github.com/OpenIoT-Hub/openiot-server/internal/user/kitex_gen/openiot/api"
+	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api"
 	fastpb "github.com/cloudwego/fastpb"
 )
 

@@ -3,8 +3,9 @@ generate:
 	kitex \
 	-service "openiot-device" \
 	-module "github.com/OpenIoT-Hub/openiot-server" \
-	-type protobuf \
-	-I ./../../idl/ device.proto
+    -type protobuf \
+    -I ./../../idl/ \
+    -I ./../../idl/device/ device.proto
 
 .PHONY: run_client
 run_client:

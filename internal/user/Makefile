@@ -1,10 +1,11 @@
 .PHONY: generate
 generate:
 	kitex \
-	-service "openiot-user" \
-	-module "github.com/OpenIoT-Hub/openiot-server" \
-	-type protobuf \
-	-I ./../../idl/ ./../../idl/user/ user.proto
+    -service "openiot-user" \
+    -module "github.com/OpenIoT-Hub/openiot-server" \
+    -type protobuf \
+    -I ./../../idl/ \
+    -I ./../../idl/user/ user.proto
 
 .PHONY: run_client
 run_client:
