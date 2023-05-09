@@ -4,7 +4,7 @@ package device
 
 import (
 	fmt "fmt"
-	api "github.com/OpenIoT-Hub/openiot-server/internal/device/kitex_gen/openiot/api"
+	api "github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api"
 	fastpb "github.com/cloudwego/fastpb"
 )
 
