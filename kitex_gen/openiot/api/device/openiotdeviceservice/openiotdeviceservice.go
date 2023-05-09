@@ -5,7 +5,7 @@ package openiotdeviceservice
 import (
 	"context"
 	"fmt"
-	api "github.com/OpenIoT-Hub/openiot-server/internal/device/kitex_gen/openiot/api"
+	api "github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api"
 	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/device"
 	client "github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
