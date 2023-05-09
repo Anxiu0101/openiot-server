@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"context"
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/user"
+	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/user"
 	"github.com/OpenIoT-Hub/openiot-server/pkg/errno"
 )
 

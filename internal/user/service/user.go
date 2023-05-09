@@ -3,7 +3,7 @@ package service
 import (
 	"github.com/OpenIoT-Hub/openiot-server/internal/user/model"
 	"github.com/OpenIoT-Hub/openiot-server/internal/user/pack"
-	api "github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/user"
+	api "github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/user"
 	"github.com/OpenIoT-Hub/openiot-server/pkg/errno"
 )
 

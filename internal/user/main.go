@@ -10,7 +10,7 @@ import (
 
 	"github.com/OpenIoT-Hub/openiot-server/config"
 	"github.com/OpenIoT-Hub/openiot-server/internal/user/model"
-	user "github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/user/openiotuserservice"
+	user "github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/user/openiotuserservice"
 	"github.com/OpenIoT-Hub/openiot-server/pkg/consts"
 )
 

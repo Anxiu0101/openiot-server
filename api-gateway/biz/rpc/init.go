@@ -1,8 +1,8 @@
 package rpc
 
 import (
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/device/openiotdeviceservice"
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/user/openiotuserservice"
+	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/device/openiotdeviceservice"
+	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/user/openiotuserservice"
 	"github.com/OpenIoT-Hub/openiot-server/pkg/consts"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/retry"
