@@ -41,9 +41,6 @@ message Device {
 
 
 /** Request Collection, Req **/
-message PingReq {
-    string message = 1;
-}
 message CreateDeviceReq {
     double Longitude = 1;
     double Latitude = 2;

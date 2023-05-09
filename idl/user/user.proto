@@ -32,9 +32,6 @@ message UserInfo {
 
 
 /** Request Collection, Req **/
-message PingReq {
-  string message = 1;
-}
 message CreateUserReq {
   optional string name = 2; // 用户名称
   optional string email = 3; // 用户工作邮箱
