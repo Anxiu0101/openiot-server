@@ -172,3 +172,20 @@ func GetPositionsByID(userId uint) ([]string, int) {
 
 	return positions, errno.Success
 }
+
+// GetUserInfoByName use User ID search on the database and return a pack.UserBasic
+func GetUserInfoByName(name string) (pack.UserBasic, int) {
+	var (
+		info pack.UserBasic
+	)
+
+	if err := db.Table(consts.UserTableName).
+		Where("name = ?", name).
+		Find(&info).Error; err == gorm.ErrRecordNotFound {
+		return info, errno.ErrorDatabaseRecordNotFound
+	} else if err != nil {
+		return info, errno.ErrorDatabaseOperate
+	}
+
+	return info, errno.Success
+}

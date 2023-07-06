@@ -1,5 +1,4 @@
-> FIXME 此文章为 GPT 生成，暂时放在这里提供思路用
-> 
+> `FIXME` 此文章为 GPT 生成，暂时放在这里提供思路用
 
 # 物联网设备分布式管理平台微服务介绍
 
@@ -14,6 +13,29 @@
 - 设备信息的存储和查询
 - 设备监控和诊断
 - 设备状态更新通知
+
+```go
+type (
+    IDevice interface {
+        Register()			# Register hook->create(), subscribe()
+        HeartBeat()			# Websocket Long Connection.
+        
+        CreateDevice()
+        UpdateDeviceInfo()
+        DeleteDevice()
+        GetDeviceInfo()
+        GetDeviceList()
+    }
+    
+    IDeviceConn interface {
+        Subscribe()
+        Update()
+        Describe()
+    }
+)
+```
+
+
 
 ## 数据管理微服务
 
