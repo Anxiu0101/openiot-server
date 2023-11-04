@@ -1,19 +1,43 @@
-.PHONY: generate
-generate:
+include ../common.mk
+
+SERVICE_NAME = user
+
+.PHONY: server
+server:
+	sh build.sh
+	cd output && sh bootstrap.sh
+
+.PHONY: gen
+gen:
 	kitex \
-    -service "openiot-user" \
-    -module "github.com/OpenIoT-Hub/openiot-server" \
-    -type protobuf \
-    -I ./../../idl/ \
-    -I ./../../idl/user/ user.proto
+	-gen-path ../../kitex_gen \
+	-service "$(SERVICE_NAME)" \
+	-module "$(MODULE)" \
+	-type thrift \
+	../../idl/$(SERVICE_NAME).thrift
+	go mod tidy
 
-.PHONY: run_client
-run_client:
-	go run ./client/main.go
+.PHONY: test
+test:
+	cd test && go test -v
 
-.PHONY: run_server
-run_server:
-	go run main.go handler.go
+
+#.PHONY: generate
+#generate:
+#	kitex \
+#    -service "openiot-user" \
+#    -module "github.com/OpenIoT-Hub/openiot-server" \
+#    -type protobuf \
+#    -I ./../../idl/ \
+#    -I ./../../idl/user/ user.proto
+#
+#.PHONY: run_client
+#run_client:
+#	go run ./client/main.go
+#
+#.PHONY: run_server
+#run_server:
+#	go run main.go handler.go
 
 # Service: user
 # Path: internal/user

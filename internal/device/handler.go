@@ -2,45 +2,44 @@ package main
 
 import (
 	"context"
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api"
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/device"
+	device "github.com/OpenIoT-Hub/openiot-server/kitex_gen/device"
 )
 
-// OpeniotDeviceServiceImpl implements the last service interface defined in the IDL.
-type OpeniotDeviceServiceImpl struct{}
+// DeviceServiceImpl implements the last service interface defined in the IDL.
+type DeviceServiceImpl struct{}
 
-// CreateDevice implements the OpeniotDeviceServiceImpl interface.
-func (s *OpeniotDeviceServiceImpl) CreateDevice(ctx context.Context, req *device.CreateDeviceReq) (resp *device.CreateDeviceRsp, err error) {
+// Ping implements the DeviceServiceImpl interface.
+func (s *DeviceServiceImpl) Ping(ctx context.Context, req *device.PingRequst) (resp *device.PingResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// RemoveDevice implements the OpeniotDeviceServiceImpl interface.
-func (s *OpeniotDeviceServiceImpl) RemoveDevice(ctx context.Context, req *device.RemoveDeviceReq) (resp *device.RemoveDeviceRsp, err error) {
+// Create implements the DeviceServiceImpl interface.
+func (s *DeviceServiceImpl) Create(ctx context.Context, req *device.CreateDeviceRequst) (resp *device.CreateDeviceResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// UpdateDevice implements the OpeniotDeviceServiceImpl interface.
-func (s *OpeniotDeviceServiceImpl) UpdateDevice(ctx context.Context, req *device.UpdateDeviceReq) (resp *device.UpdateDeviceRsp, err error) {
+// Remove implements the DeviceServiceImpl interface.
+func (s *DeviceServiceImpl) Remove(ctx context.Context, req *device.RemoveDeviceRequst) (resp *device.RemoveDeviceResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// GetDevice implements the OpeniotDeviceServiceImpl interface.
-func (s *OpeniotDeviceServiceImpl) GetDevice(ctx context.Context, req *device.GetDeviceReq) (resp *device.GetDeviceRsp, err error) {
+// Update implements the DeviceServiceImpl interface.
+func (s *DeviceServiceImpl) Update(ctx context.Context, req *device.UpdateDeviceRequst) (resp *device.UpdateDeviceResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// ListDevice implements the OpeniotDeviceServiceImpl interface.
-func (s *OpeniotDeviceServiceImpl) ListDevice(ctx context.Context, req *device.ListDeviceReq) (resp *device.ListDeviceRsp, err error) {
+// GetDeviceByID implements the DeviceServiceImpl interface.
+func (s *DeviceServiceImpl) GetDeviceByID(ctx context.Context, req *device.GetDeviceRequst) (resp *device.GetDeviceResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// Ping implements the OpeniotDeviceServiceImpl interface.
-func (s *OpeniotDeviceServiceImpl) Ping(ctx context.Context, req *device.PingReq) (resp *api.BaseRsp, err error) {
+// ListDevice implements the DeviceServiceImpl interface.
+func (s *DeviceServiceImpl) ListDevice(ctx context.Context, req *device.ListDeviceRequst) (resp *device.ListDeviceResponse, err error) {
 	// TODO: Your code here...
 	return
 }

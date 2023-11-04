@@ -2,54 +2,26 @@ package main
 
 import (
 	"context"
-	"github.com/OpenIoT-Hub/openiot-server/internal/user/pack"
-	"github.com/OpenIoT-Hub/openiot-server/internal/user/service"
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api"
-	"github.com/OpenIoT-Hub/openiot-server/kitex_gen/openiot/api/user"
+	user "github.com/OpenIoT-Hub/openiot-server/kitex_gen/user"
 )
 
-// OpeniotUserServiceImpl implements the last service interface defined in the IDL.
-type OpeniotUserServiceImpl struct{}
+// UserServiceImpl implements the last service interface defined in the IDL.
+type UserServiceImpl struct{}
 
-// Ping implements the OpeniotUserServiceImpl interface.
-func (s *OpeniotUserServiceImpl) Ping(ctx context.Context, req *user.PingReq) (resp *api.BaseRsp, err error) {
-	resp = new(api.BaseRsp)
-	resp.StatusCode = 200
-	resp.StatusMsg = "Pong!"
-	return
-}
-
-// GetUserInfo implements the OpeniotUserServiceImpl interface.
-func (s *OpeniotUserServiceImpl) GetUserInfo(ctx context.Context, req *user.GetUserInfoReq) (resp *user.GetUserInfoRsp, err error) {
-	resp = new(user.GetUserInfoRsp)
-	id := req.Id
-	info, eCode := service.GetUserInfo(uint(id))
-	base := pack.BuildBaseRsp(eCode)
-	resp.UserInfo = &info
-	resp.Base = base
-	return
-}
-
-// CreateUser implements the OpeniotUserServiceImpl interface.
-func (s *OpeniotUserServiceImpl) CreateUser(ctx context.Context, req *user.CreateUserReq) (resp *user.CreateUserRsp, err error) {
+// Register implements the UserServiceImpl interface.
+func (s *UserServiceImpl) Register(ctx context.Context, req *user.RegisterRequest) (resp *user.RegisterResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// RemoveUser implements the OpeniotUserServiceImpl interface.
-func (s *OpeniotUserServiceImpl) RemoveUser(ctx context.Context, req *user.RemoveUserReq) (resp *user.RemoveUserRsp, err error) {
+// Login implements the UserServiceImpl interface.
+func (s *UserServiceImpl) Login(ctx context.Context, req *user.LoginRequest) (resp *user.LoginResponse, err error) {
 	// TODO: Your code here...
 	return
 }
 
-// UpdateUser implements the OpeniotUserServiceImpl interface.
-func (s *OpeniotUserServiceImpl) UpdateUser(ctx context.Context, req *user.UpdateUserReq) (resp *user.UpdateUserRsp, err error) {
-	// TODO: Your code here...
-	return
-}
-
-// ListUserInfo implements the OpeniotUserServiceImpl interface.
-func (s *OpeniotUserServiceImpl) ListUserInfo(ctx context.Context, req *user.ListUserInfoReq) (resp *user.ListUserInfoRsp, err error) {
+// Info implements the UserServiceImpl interface.
+func (s *UserServiceImpl) Info(ctx context.Context, req *user.InfoRequest) (resp *user.InfoResponse, err error) {
 	// TODO: Your code here...
 	return
 }
